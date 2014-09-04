@@ -57,7 +57,7 @@ app.param('task_id', function(req, res, next, taskId) {
   });
 });
 
-app.get('/', routes.index);
+app.get('/', tasks.list);
 app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted)
 app.post('/tasks', tasks.add);

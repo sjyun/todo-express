@@ -23,22 +23,6 @@ block content
           input(type="text", name="name", placeholder='새로운 태스크 추가')
         div.delete
           input.btn.btn-primary.btn-sm(type="submit", value='add')
-    if (tasks.length === 0)
-      | No tasks.
-
-    ul.list-group
-    each task in tasks
-      li.list-group-item.row(data-toggle='modal', data-target='#myModal')
-        div.action.col-md-1
-          form(action='/tasks/#{task._id}', method='post')
-            input(type='hidden', value=task._id.toString(), name='id')
-            input(type='hidden', value='true', name='completed')
-            input(type='hidden', value=locals._csrf, name='_csrf')
-            input(type='submit', class='btn btn-success btn-xs task-done', value='done')
-        div.name.col-md-10
-          span.name=task.name
-        div.delete.col-md-1
-          a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf) delete
 
   .modal.fade(id='myModal', role='dialog')
     .modal-dialog

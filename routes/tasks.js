@@ -3,6 +3,15 @@
  * GET users listing.
  */
 
+exports.apilist = function(req, res, next){
+  req.db.tasks.find({completed: false}).toArray(function(error, tasks){
+    if (error) return next(error);
+    res.render('api-tasks', {
+      tasks: tasks || []
+    });
+  });
+};
+
 exports.list = function(req, res, next){
   req.db.tasks.find({completed: false}).toArray(function(error, tasks){
     if (error) return next(error);

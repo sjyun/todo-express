@@ -59,6 +59,7 @@ app.param('task_id', function(req, res, next, taskId) {
 
 app.get('/', tasks.list);
 app.get('/tasks', tasks.list);
+app.get('/api/tasks', tasks.apilist);
 app.post('/tasks', tasks.markAllCompleted)
 app.post('/tasks', tasks.add);
 app.post('/tasks/:task_id', tasks.markCompleted);

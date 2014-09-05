@@ -1,17 +1,38 @@
 $(document).ready(function() {
   var $alert = $('.alert');
   $alert.hide();
+
   $alert.on('error', function(event, data){
     $alert.html(data)
     $alert.addClass('alert-danger');
     $alert.show();
   });
+
   $alert.on('success', function(event, data) {
     $alert.html(data);
     $alert.addClass('alert-info');
     $alert.show();
-  })
-  $('.task-delete').click(function(event) {
+  });
+
+  var addTasks = function() {
+    $.ajax({
+      type: 'GET',
+      contentType: "text/html; charset=utf-8",
+      url: '/api/tasks',
+      success: function(tasks) {
+        var tasks = $(tasks);
+        $('.list').append(tasks);
+        $('.task-delete').click(deleteHandler);
+      },
+      error: function(error) {
+        $alert.trigger('error', error);
+      }
+    });    
+  }
+
+  addTasks();
+
+  var deleteHandler = function(event) {
     $target = $(event.target)
     $.ajax({
       type: 'DELETE',
@@ -26,12 +47,11 @@ $(document).ready(function() {
       error: function(error) {
         $alert.trigger('error', error);
       }
-    })
-  });
+    });
+  };
 
   var $modal = $('#myModal');
-  $('.list-group-item').on('click', function(event) {
-    console.log($(this).find('span.name').text());
+  $('.item-name').on('click', function(event) {
     setTimeout(function() {
       $modal.modal('show');
     }, 1000);

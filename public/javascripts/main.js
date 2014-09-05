@@ -28,4 +28,12 @@ $(document).ready(function() {
       }
     })
   });
-})
+
+  var $modal = $('#myModal');
+  $('.list-group-item').on('click', function(event) {
+    console.log($(this).find('span.name').text());
+    setTimeout(function() {
+      $modal.modal('show');
+    }, 1000);
+  });
+});

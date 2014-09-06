@@ -3,20 +3,10 @@
  * GET users listing.
  */
 
-exports.apilist = function(req, res, next){
-  req.db.tasks.find({completed: false}).toArray(function(error, tasks){
-    if (error) return next(error);
-    res.render('api-tasks', {
-      tasks: tasks || []
-    });
-  });
-};
-
 exports.list = function(req, res, next){
   req.db.tasks.find({completed: false}).toArray(function(error, tasks){
     if (error) return next(error);
     res.render('tasks', {
-      title: 'Todo List',
       tasks: tasks || []
     });
   });
@@ -31,7 +21,9 @@ exports.add = function(req, res, next){
     if (error) return next(error);
     if (!task) return next(new Error('Failed to save.'));
     console.info('Added %s with id=%s', task.name, task._id);
-    res.redirect('/tasks');
+    res.render('task', {
+      task: task
+    });
   })
 };
 
@@ -63,7 +55,7 @@ exports.markCompleted = function(req, res, next) {
     if (error) return next(error);
     if (count !==1) return next(new Error('Something went wrong.'));
     console.info('Marked task %s with id=%s completed.', req.task.name, req.task._id);
-    res.redirect('/tasks');
+    res.status(200).send();
   })
 };
 

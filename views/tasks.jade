@@ -1,39 +1,12 @@
-extends layout
-
-block content
-
-  .menu
-    ul.nav.nav-pills
-      li.active
-        a(href='/tasks') Todo List
-      li
-        a(href="/tasks/completed") Completed
-  h1= title
-
-  .list
-    .item.add-task
-      div.action
-        form(action='/tasks', method='post')
-          input(type='hidden', value='true', name='all_done')
-          input(type='hidden', value=locals._csrf, name='_csrf')
-          input(type='submit', class='btn btn-success btn-xs', value='all done')
-      form(action="/tasks", method='post')
+each task in tasks
+  li.list-group-item.row
+    div.action.col-md-1
+      form#completedForm(action='/tasks/#{task._id}', method='post')
+        input(type='hidden', value=task._id.toString(), name='id')
+        input(type='hidden', value='true', name='completed')
         input(type='hidden', value=locals._csrf, name='_csrf')
-        div.name
-          input(type="text", name="name", placeholder='새로운 태스크 추가')
-        div.delete
-          input.btn.btn-primary.btn-sm(type="submit", value='add')
-
-  .modal.fade(id='myModal', role='dialog')
-    .modal-dialog
-      .modal-content
-        .modal-header
-          button.close(type='button', data-dismiss='modal')
-            span(aria-hidden='true') &times;
-            span.sr-only Close
-          h4.modal-title Modal Title
-        .modal-body
-          p One fine body
-        .modal-footer
-          button.btn.btn-default(type='button', data-dismiss='modal') Close
-          button.btn.btn-primary(type='button') Save changes
+        input(type='submit', class='btn btn-success btn-xs task-done', value='done')
+    div.name.item-name.col-md-10(data-toggle='modal', data-target='#myModal')
+      span.name=task.name
+    div.delete.col-md-1
+      a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf) delete

@@ -5,7 +5,8 @@ li.list-group-item.row
       input(type='hidden', value='true', name='completed')
       input(type='hidden', value=locals._csrf, name='_csrf')
       input(type='submit', class='btn btn-success btn-xs task-done', value='done')
-  div.name.item-name.col-md-10(data-toggle='modal', data-target='#myModal')
-    span.name=task.name
+  div.name.item-name.col-md-10
+    span.name(data-toggle='modal', data-target='#myModal')
+      a#showTask(href='/tasks/#{task._id}') #{task.name}
   div.delete.col-md-1
     a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf) delete

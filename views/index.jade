@@ -2,18 +2,12 @@ extends layout
 
 block content
 
-  .menu
-    ul.nav.nav-pills
-      li.active
-        a(href='/') Todo List
-      li
-        a(href="/tasks/completed") Completed
   h1= title
 
   .list
     .item.add-task
       div.action
-        form(action='/tasks', method='post')
+        form#allDoneForm(action='/tasks', method='post')
           input(type='hidden', value='true', name='all_done')
           input(type='hidden', value=locals._csrf, name='_csrf')
           input(type='submit', class='btn btn-success btn-xs', value='all done')
@@ -32,9 +26,9 @@ block content
           button.close(type='button', data-dismiss='modal')
             span(aria-hidden='true') &times;
             span.sr-only Close
-          h4.modal-title Modal Title
+          h4.modal-title
         .modal-body
-          p One fine body
+          p This is body
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Close
           button.btn.btn-primary(type='button') Save changes

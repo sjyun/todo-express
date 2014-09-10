@@ -27,6 +27,10 @@ exports.add = function(req, res, next){
   })
 };
 
+exports.findById = function(req, res, next){
+  res.status(200).send(req.task);
+};
+
 exports.markAllCompleted = function(req, res, next) {
   if (!req.body.all_done || req.body.all_done !== 'true') return next();
   req.db.tasks.update({
@@ -36,17 +40,8 @@ exports.markAllCompleted = function(req, res, next) {
   }}, {multi: true}, function(error, count){
     if (error) return next(error);
     console.info('Marked %s task(s) completed.', count);
-    res.redirect('/tasks');
+    res.status(200).send();
   })
-};
-
-exports.completed = function(req, res, next) {
-  req.db.tasks.find({completed: true}).toArray(function(error, tasks) {
-    res.render('tasks_completed', {
-      title: 'Completed',
-      tasks: tasks || []
-    });
-  });
 };
 
 exports.markCompleted = function(req, res, next) {

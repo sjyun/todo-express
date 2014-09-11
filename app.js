@@ -1,10 +1,10 @@
 var express = require('express');
 var routes = require('./routes');
 var tasks = require('./routes/tasks');
-var http = require('http');
 var path = require('path');
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/todo?auto_reconnect', {safe:true});
+var http = require('http');
 var app = express();
 
 var favicon = require('serve-favicon'),
@@ -67,11 +67,25 @@ app.delete('/tasks/:task_id', tasks.del);
 
 app.all('*', function(req, res){
   res.send(404);
-})
+});
+
 // development only
 if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
-http.createServer(app).listen(app.get('port'), function(){
+
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket){
+  socket.on('add todo', function(msg){
+    io.emit('add todo', msg);
+  });
+
+  socket.on('delete todo', function(msg){
+    io.emit('delete todo', msg);
+  });
 });

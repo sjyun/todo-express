@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var socket = io();
   var $alert = $('.alert');
   $alert.hide();
 
@@ -22,12 +23,7 @@ $(document).ready(function() {
         type: "POST",
         data: $target.serializeArray(),
         success:function(task) {
-          $task = $(task);
-          $task.find('.task-delete').click(deleteHandler);
-          $task.find('#showTask').click(showHandler);
-          $task.find('#completedForm').submit(completedHandler);
-          $('ul.list-group').append($task);
-
+          socket.emit('add todo', task);
           $target.find("input[name='name']").val('');
         },
         error: function(error) {   
@@ -101,8 +97,7 @@ $(document).ready(function() {
         _csrf: $target.attr('data-csrf')
       },
       success: function(response) {
-        $target.parent().parent().remove();
-        $alert.trigger('success', 'Task was removed.');
+        socket.emit('delete todo', $target.attr('data-task-id'));
       },
       error: function(error) {
         $alert.trigger('error', error);
@@ -124,4 +119,16 @@ $(document).ready(function() {
     }); 
     event.preventDefault();    
   };
+
+  socket.on('add todo', function(task){
+    $task = $(task);
+    $task.find('.task-delete').click(deleteHandler);
+    $task.find('#showTask').click(showHandler);
+    $task.find('#completedForm').submit(completedHandler);
+    $('ul.list-group').append($task);
+  });
+
+  socket.on('delete todo', function(msg) {
+    $("a[data-task-id='" + msg + "']").parent().parent().remove();
+  });
 });

@@ -11,7 +11,7 @@ html
       .navbar.navbar-default
         .container
         .navbar-header.pull-right
-          form(class="form-inline", action="/login", method='post')
+          form#loginForm(class="form-inline", action="/login", method='post')
             div.form-group
               input(type='text', name='nickname', placeholder='닉네임')
               button(type='submit', class='btn btn-default') 로그인

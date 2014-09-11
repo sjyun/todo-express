@@ -27,6 +27,8 @@ $(document).ready(function() {
           $task.find('#showTask').click(showHandler);
           $task.find('#completedForm').submit(completedHandler);
           $('ul.list-group').append($task);
+
+          $target.find("input[name='name']").val('');
         },
         error: function(error) {   
         }

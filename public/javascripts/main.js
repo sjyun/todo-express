@@ -41,7 +41,7 @@ $(document).ready(function() {
         type: "POST",
         data: $target.serializeArray(),
         success:function(response) {
-          $('ul.list-group').empty();
+          socket.emit('all completed todo', response);
           $alert.trigger('success', 'Task was completed.');
         },
         error: function(error) {   
@@ -58,7 +58,7 @@ $(document).ready(function() {
         type: "POST",
         data: $target.serializeArray(),
         success:function(task) {
-          $target.parent().parent().remove();
+          socket.emit('completed todo', task);
           $alert.trigger('success', 'Task was completed.');
         },
         error: function(error) {   
@@ -67,18 +67,22 @@ $(document).ready(function() {
     event.preventDefault(); 
   };
 
+  var addEventsTodo = function(tasks) {
+    $tasks = $(tasks);
+    if ($tasks.is(':empty')) return;
+    
+    $tasks.find('#completedForm').submit(completedHandler);
+    $tasks.find('#showTask').click(showHandler);
+    $tasks.find('.task-delete').click(deleteHandler);
+    $('ul.list-group').append($tasks);    
+  }
+
   var showTasks = function() {
     $.ajax({
       type: 'GET',
       url: '/tasks',
       success: function(tasks) {
-        $tasks = $(tasks);
-        if ($tasks.is(':empty')) return;
-        
-        $tasks.find('#completedForm').submit(completedHandler);
-        $tasks.find('#showTask').click(showHandler);
-        $tasks.find('.task-delete').click(deleteHandler);
-        $('ul.list-group').append($tasks);
+        addEventsTodo(tasks);
       },
       error: function(error) {
         $alert.trigger('error', error);
@@ -121,14 +125,18 @@ $(document).ready(function() {
   };
 
   socket.on('add todo', function(task){
-    $task = $(task);
-    $task.find('.task-delete').click(deleteHandler);
-    $task.find('#showTask').click(showHandler);
-    $task.find('#completedForm').submit(completedHandler);
-    $('ul.list-group').append($task);
+    addEventsTodo(task);
   });
 
   socket.on('delete todo', function(msg) {
     $("a[data-task-id='" + msg + "']").parent().parent().remove();
+  });
+
+  socket.on('completed todo', function(task) {
+    $("a[data-task-id='" + task._id + "']").parent().parent().remove();
+  });
+
+  socket.on('all completed todo', function(msg) {
+    $('ul.list-group').empty();
   });
 });

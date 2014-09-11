@@ -50,7 +50,7 @@ exports.markCompleted = function(req, res, next) {
     if (error) return next(error);
     if (count !==1) return next(new Error('Something went wrong.'));
     console.info('Marked task %s with id=%s completed.', req.task.name, req.task._id);
-    res.status(200).send();
+    res.status(200).send(req.task);
   })
 };
 

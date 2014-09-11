@@ -88,4 +88,12 @@ io.on('connection', function(socket){
   socket.on('delete todo', function(msg){
     io.emit('delete todo', msg);
   });
+
+  socket.on('completed todo', function(msg){
+    io.emit('completed todo', msg);
+  });
+
+  socket.on('all completed todo', function(msg){
+    io.emit('all completed todo', msg);
+  });
 });

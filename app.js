@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
   req.db = {};
   req.db.tasks = db.collection('tasks');
   next();
-})
+});
 app.locals.appname = 'Express.js Todo App'
 // all environments
 
@@ -46,7 +46,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
   res.locals._csrf = req.csrfToken();
   return next();
-})
+});
+
+app.get('/', routes.index);
+app.post('/login', routes.login);
+
+app.use(function(req, res, next) {
+  if (req.session.name) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+});
 
 app.param('task_id', function(req, res, next, taskId) {
   req.db.tasks.findById(taskId, function(error, task){
@@ -57,7 +68,6 @@ app.param('task_id', function(req, res, next, taskId) {
   });
 });
 
-app.get('/', routes.index);
 app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted)
 app.post('/tasks', tasks.add);

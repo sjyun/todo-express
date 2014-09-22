@@ -16,6 +16,10 @@ var favicon = require('serve-favicon'),
   csrf = require('csurf'),
   errorHandler = require('errorhandler');
 
+var RedisStore = require('connect-redis')(session),
+  redis = require('redis'),
+  redisClient = redis.createClient();
+
 app.use(function(req, res, next) {
   req.db = {};
   req.db.tasks = db.collection('tasks');
@@ -23,7 +27,6 @@ app.use(function(req, res, next) {
 });
 app.locals.appname = 'Express.js Todo App'
 // all environments
-
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -35,9 +38,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 app.use(cookieParser('CEAF3FA4-F385-49AA-8FE4-54766A9874F1'));
 app.use(session({
-  secret: '59B93087-78BC-4EB9-993A-A61FC844F6C9',
-  resave: true,
-  saveUninitialized: true
+  store : new RedisStore({
+    host : '127.0.0.1',
+    port : 6379,
+    client : redisClient,
+  }),
+  secret : '59B93087-78BC-4EB9-993A-A61FC844F6C9',
+  resave : true,
+  saveUninitialized : true
 }));
 app.use(csrf());
 

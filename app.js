@@ -61,6 +61,8 @@ app.get('/', routes.index);
 app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted)
 app.post('/tasks', tasks.add);
+//app.put('/tasks/:task_id', tasks.updateTask);
+app.post('tasks/update', tasks.updateTask);
 app.get('/tasks/:task_id', tasks.findById);
 app.post('/tasks/:task_id', tasks.markCompleted);
 app.delete('/tasks/:task_id', tasks.del);

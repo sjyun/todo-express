@@ -28,7 +28,9 @@ block content
             span.sr-only Close
           h4.modal-title
         .modal-body
-          p This is body
+          input(type='text', id='contents')
+          input(type='text', id='taskId')
+          input(type='hidden', value=locals._csrf, id='asdf')
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Close
-          button.btn.btn-primary(type='button') Save changes
+          button.btn.btn-primary(type='button', id='saveBtn') Save changes

@@ -112,11 +112,15 @@ $(document).ready(function() {
 
   var showHandler = function(event) {
     var $target = $(event.target);
+    alert($target);
+
+    alert($target.attr('data-task-id'));
 
     $.ajax({
         url : $target.attr("href"),
         type: "GET",
         success:function(task) {
+          $('#taskId').val($target.attr('data-task-id'));
           $('.modal-title').html(task.name);
         },
         error: function(error) {   
@@ -124,4 +128,29 @@ $(document).ready(function() {
     }); 
     event.preventDefault();    
   };
+
+
+  $('#saveBtn').on('click', function(event) {
+    var contents = $('#contents').val();
+    var $target = $(event.target);
+    //alert($('#asdf').val());
+  /* TODO task id 넘겨줘야함. 
+      $.ajax({
+        url : '/tasks/update/',
+        type: "POST",
+        data: {
+          task_id:$('#taskId').val(),
+          contents:contents,
+           _csrf: $('#asdf').val()
+        },
+        success:function(task) {
+          alert('su');
+        },
+        error: function(error) {   
+          alert('err');
+        }
+    }); 
+*/
+    event.preventDefault();
+    })
 });

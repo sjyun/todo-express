@@ -14,8 +14,10 @@ exports.list = function(req, res, next){
 
 exports.add = function(req, res, next){
   if (!req.body || !req.body.name) return next(new Error('No data provided.'));
+  console.info(req.body.name);
   req.db.tasks.save({
     name: req.body.name,
+    contents:req.body.contents,
     completed: false
   }, function(error, task){
     if (error) return next(error);
@@ -61,4 +63,17 @@ exports.del = function(req, res, next) {
     console.info('Deleted task %s with id=%s completed.', req.task.name, req.task._id);
     res.status(200).send();
   });
+};
+
+
+exports.updateTask = function(req, res, next) {
+  console.info('update...');
+  /*
+  req.db.tasks.update(req.task._id, function(error, count) {
+    if (error) return next(error);
+    if (count !==1) return next(new Error('Something went wrong.'));
+    console.info('Deleted task %s with id=%s completed.', req.task.name, req.task._id);
+    res.status(200).send();
+  });
+*/
 };

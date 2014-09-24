@@ -62,3 +62,9 @@ exports.del = function(req, res, next) {
     res.status(200).send();
   });
 };
+
+exports.login = function(req, res, next) {
+    req.session.nickname=req.param('nickname');
+    console.log(req.session.name)
+    res.redirect('/')
+};

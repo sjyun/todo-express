@@ -6,6 +6,7 @@ var path = require('path');
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/todo?auto_reconnect', {safe:true});
 var app = express();
+var io = require('socket.io')(80)
 
 var favicon = require('serve-favicon'),
   logger = require('morgan'),
@@ -43,9 +44,21 @@ app.use(csrf());
 
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(function(req, res, next) {
-  res.locals._csrf = req.csrfToken();
-  return next();
+    res.locals._csrf = req.csrfToken();
+    return next();
+})
+
+app.get('/', routes.index);
+app.post('/login', tasks.login);
+
+app.use(function(req, res, next) {
+  if(req.session.nickname){
+      next();
+  }else{
+      res.redirect('/')
+  }
 })
 
 app.param('task_id', function(req, res, next, taskId) {
@@ -57,7 +70,6 @@ app.param('task_id', function(req, res, next, taskId) {
   });
 });
 
-app.get('/', routes.index);
 app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted)
 app.post('/tasks', tasks.add);

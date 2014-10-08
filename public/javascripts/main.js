@@ -173,5 +173,14 @@ $(document).ready(function() {
 
   var socket = io.connect('http://localhost:3000', {});
 
+  socket.on('user connect', function(msg) {
+    //alert('connect success');
+    // 사용자 리스트 갱신하세요.
+  });
+
+  socket.on('change task', function(msg) {
+    //alert('change task');
+    showTasks();
+  });
 
 });

@@ -92,12 +92,12 @@ app.param('task_id', function(req, res, next, taskId) {
 });
 
 app.get('/tasks', tasks.list);
-app.post('/tasks', tasks.markAllCompleted)
-app.post('/tasks', tasks.add, ms);
-app.put('/tasks/:task_id', tasks.updateTask);
+app.post('/tasks', tasks.markAllCompleted, sendMsg)
+app.post('/tasks', tasks.add, sendMsg);
+app.put('/tasks/:task_id', tasks.updateTask, sendMsg);
 app.get('/tasks/:task_id', tasks.findById);
-app.post('/tasks/:task_id', tasks.markCompleted);
-app.delete('/tasks/:task_id', tasks.del);
+app.post('/tasks/:task_id', tasks.markCompleted, sendMsg);
+app.delete('/tasks/:task_id', tasks.del, sendMsg);
 
 app.all('*', function(req, res){
   res.send(404);
@@ -114,13 +114,19 @@ server.listen(app.get('port'), function(){
 
 var io = socket.listen(server);
 
-io.on('connection', function() {
+io.on('connection', function(socket) {
   console.log('Hello Socket IO');
+
+  socket.emit('user connect');
+
 });
 
 
-function ms() {
+function sendMsg() {
+
   console.log('============ chnage task ==========');
+
+  io.sockets.emit('change task');
 }
 
 

@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tasks.js" afterPath="$PROJECT_DIR$/routes/tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="todo-express2.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412768832452" ignored="false" />
     <file path="/a.dummy" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411557842603" ignored="false" />
     <file path="/*.regexp" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411559820310" ignored="false" />
-    <file path="/app.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412768148284" ignored="false" />
+    <file path="/app.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412769065865" ignored="false" />
     <file path="/tasks.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412768163402" ignored="false" />
     <file path="/layout.jade" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411562124202" ignored="false" />
     <file path="/index.jade" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411561476753" ignored="false" />
     <file path="/index.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411561895674" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412769009827" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,16 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="10" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.339823">
+            <state line="8" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.339823">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -336,9 +341,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="128" y="48" width="1276" height="1002" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -425,11 +430,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="475" selection-end="475" vertical-scroll-proportion="0.89385474" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="847" column="22" selection-start="20577" selection-end="20577" vertical-scroll-proportion="0.0">
@@ -508,9 +508,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="10" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.339823">
+        <state line="8" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.339823">
           <folding />
         </state>
       </provider>

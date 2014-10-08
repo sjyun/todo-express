@@ -6,7 +6,7 @@ var path = require('path');
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/todo?auto_reconnect', {safe:true});
 var app = express();
-var io = require('socket.io')
+var socket = require('socket.io')
 var redis = require('redis')
 var client = redis.createClient();
 

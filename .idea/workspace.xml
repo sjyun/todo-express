@@ -3,18 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tasks.js" afterPath="$PROJECT_DIR$/routes/tasks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="todo-express2.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412768832452" ignored="false" />
-    <file path="/a.dummy" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411557842603" ignored="false" />
+    <file path="/a.dummy" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412769250818" ignored="false" />
     <file path="/*.regexp" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411559820310" ignored="false" />
-    <file path="/app.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412769065865" ignored="false" />
-    <file path="/tasks.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412768163402" ignored="false" />
+    <file path="/app.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412772004407" ignored="false" />
+    <file path="/tasks.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412771143567" ignored="false" />
     <file path="/layout.jade" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411562124202" ignored="false" />
-    <file path="/index.jade" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411561476753" ignored="false" />
-    <file path="/index.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1411561895674" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412769009827" ignored="false" />
+    <file path="/index.jade" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412771588716" ignored="false" />
+    <file path="/index.js" changelist="f1366f0a-ae6f-44da-bc5e-58b5bfe9e697" time="1412772018686" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,16 +81,25 @@
       <file leaf-file-name="tasks.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/tasks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="10" selection-start="2448" selection-end="2448" vertical-scroll-proportion="0.0">
+            <state line="81" column="39" selection-start="2556" selection-end="2568" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.339823">
+            <state line="30" column="18" selection-start="985" selection-end="997" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connection_breaker.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/redis/connection_breaker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="27" selection-start="709" selection-end="709" vertical-scroll-proportion="5.28">
               <folding />
             </state>
           </provider>
@@ -105,7 +117,43 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/redis/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1283" column="2" selection-start="44052" selection-end="44190" vertical-scroll-proportion="0.0">
+            <state line="1278" column="14" selection-start="44080" selection-end="44090" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="20" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="18" selection-start="48" selection-end="48" vertical-scroll-proportion="0.13284133">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/task.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/tasks.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="51" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,11 +177,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/views/index.jade" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/routes/tasks.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
       </list>
     </option>
   </component>
@@ -198,6 +246,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todo-express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todo-express2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -213,6 +275,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todo-express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todo-express2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,6 +423,7 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -363,7 +440,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -430,33 +506,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="847" column="22" selection-start="20577" selection-end="20577" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/jade/release.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/less-middleware/node_modules/less/lib/less/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="92" selection-end="92" vertical-scroll-proportion="0.12743363" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="10" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="61" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" />
@@ -494,20 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/redis/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1283" column="2" selection-start="44052" selection-end="44190" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/tasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="10" selection-start="2448" selection-end="2448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0">
@@ -515,9 +550,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/redis/connection_breaker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="27" selection-start="709" selection-end="709" vertical-scroll-proportion="5.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/redis/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1278" column="14" selection-start="44080" selection-end="44090" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/task.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/tasks.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="51" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="10" selection-start="317" selection-end="317" vertical-scroll-proportion="0.339823">
+        <state line="30" column="18" selection-start="985" selection-end="997" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="39" selection-start="2556" selection-end="2568" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="48" selection-end="48" vertical-scroll-proportion="0.13284133">
           <folding />
         </state>
       </provider>

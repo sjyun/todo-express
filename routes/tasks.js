@@ -82,6 +82,6 @@ exports.updateTask = function(req, res, next) {
 
 exports.login = function(req, res, next) {
     req.session.nickname=req.param('nickname');
-    req.redisClient.set("nickname", req.param('nickname'),req.redis.print);
+    req.redisClient.lpush("loginedUsers", req.param('nickname'),req.redis.print);
     res.redirect('/')
 };

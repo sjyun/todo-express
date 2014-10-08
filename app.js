@@ -10,22 +10,9 @@ var socket = require('socket.io')
 var redis = require('redis')
 var client = redis.createClient();
 
-
-client.mget(["sessions started", "sessions started", "foo","dddd"], function(err, res) {
-    console.dir(res);
-});
-
-
 client.on("error", function (err) {
     console.log("error event - " + client.host + ":" + client.port + " - " + err);
 });
-
-client.set("string key", "string val", redis.print);
-
-client.mget(["sessions started", "sessions started", "foo","string key"], function(err, res) {
-    console.dir(res);
-});
-
 
 var favicon = require('serve-favicon'),
   logger = require('morgan'),
@@ -41,6 +28,15 @@ app.use(function(req, res, next) {
   req.db.tasks = db.collection('tasks');
   req.redis = redis;
   req.redisClient = client;
+  req.loginedUsers=[];
+  req.redisClient.lrange("loginedUsers",0,-1,function(err,obj){
+        if (err) {
+        }else {
+            req.loginedUsers = obj;
+            console.log(req.loginedUsers)
+
+        }
+    })
   next();
 })
 app.locals.appname = 'Express.js Todo App'

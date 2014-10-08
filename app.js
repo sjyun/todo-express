@@ -6,7 +6,25 @@ var path = require('path');
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/todo?auto_reconnect', {safe:true});
 var app = express();
-var socket = require('socket.io');
+var io = require('socket.io')
+var redis = require('redis')
+var client = redis.createClient();
+
+
+client.mget(["sessions started", "sessions started", "foo","dddd"], function(err, res) {
+    console.dir(res);
+});
+
+
+client.on("error", function (err) {
+    console.log("error event - " + client.host + ":" + client.port + " - " + err);
+});
+
+client.set("string key", "string val", redis.print);
+
+client.mget(["sessions started", "sessions started", "foo","string key"], function(err, res) {
+    console.dir(res);
+});
 
 
 var favicon = require('serve-favicon'),
@@ -21,6 +39,8 @@ var favicon = require('serve-favicon'),
 app.use(function(req, res, next) {
   req.db = {};
   req.db.tasks = db.collection('tasks');
+  req.redis = redis;
+  req.redisClient = client;
   next();
 })
 app.locals.appname = 'Express.js Todo App'

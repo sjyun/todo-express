@@ -29,7 +29,7 @@ block content
           h4.modal-title
         .modal-body
           input(type='text', id='contents')
-          input(type='text', id='taskId')
+          input(type='hidden', id='taskId')
           input(type='hidden', value=locals._csrf, id='asdf')
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Close

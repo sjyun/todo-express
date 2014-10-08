@@ -6,7 +6,8 @@ var path = require('path');
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/todo?auto_reconnect', {safe:true});
 var app = express();
-var io = require('socket.io')(80)
+var socket = require('socket.io');
+
 
 var favicon = require('serve-favicon'),
   logger = require('morgan'),
@@ -72,9 +73,8 @@ app.param('task_id', function(req, res, next, taskId) {
 
 app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted)
-app.post('/tasks', tasks.add);
-//app.put('/tasks/:task_id', tasks.updateTask);
-app.post('tasks/update', tasks.updateTask);
+app.post('/tasks', tasks.add, ms);
+app.put('/tasks/:task_id', tasks.updateTask);
 app.get('/tasks/:task_id', tasks.findById);
 app.post('/tasks/:task_id', tasks.markCompleted);
 app.delete('/tasks/:task_id', tasks.del);
@@ -86,6 +86,21 @@ app.all('*', function(req, res){
 if ('development' == app.get('env')) {
   app.use(errorHandler());
 }
-http.createServer(app).listen(app.get('port'), function(){
+
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var io = socket.listen(server);
+
+io.on('connection', function() {
+  console.log('Hello Socket IO');
+});
+
+
+function ms() {
+  console.log('============ chnage task ==========');
+}
+
+

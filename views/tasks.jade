@@ -8,6 +8,6 @@ each task in tasks
         input(type='submit', class='btn btn-success btn-xs task-done', value='done')
     div.name.item-name.col-md-10
       span.name(data-toggle='modal', data-target='#myModal')
-        a#showTask(href='/tasks/#{task._id}') #{task.name}
+        a#showTask(href='/tasks/#{task._id}', data-task-id=task._id.toString()) #{task.name}
     div.delete.col-md-1
       a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf) delete

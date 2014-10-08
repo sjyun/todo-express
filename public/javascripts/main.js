@@ -112,18 +112,19 @@ $(document).ready(function() {
 
   var showHandler = function(event) {
     var $target = $(event.target);
-    alert($target);
-
-    alert($target.attr('data-task-id'));
+    
+    var taskId = $target.attr('data-task-id');
 
     $.ajax({
         url : $target.attr("href"),
         type: "GET",
         success:function(task) {
-          $('#taskId').val($target.attr('data-task-id'));
+          $('#taskId').val(taskId);
+          $('#contents').val(task.contents);
           $('.modal-title').html(task.name);
         },
-        error: function(error) {   
+        error: function(error) { 
+          alert('error');   
         }
     }); 
     event.preventDefault();    
@@ -131,26 +132,32 @@ $(document).ready(function() {
 
 
   $('#saveBtn').on('click', function(event) {
+    var taskId =  $('#taskId').val();
     var contents = $('#contents').val();
     var $target = $(event.target);
-    //alert($('#asdf').val());
-  /* TODO task id 넘겨줘야함. 
+
       $.ajax({
-        url : '/tasks/update/',
-        type: "POST",
+        url : '/tasks/' + $('#taskId').val(),
+        type: "PUT",
         data: {
-          task_id:$('#taskId').val(),
           contents:contents,
            _csrf: $('#asdf').val()
         },
         success:function(task) {
-          alert('su');
+          $('#taskId').val('');
+          $('#contents').val('');
+          $('.modal-title').html('');
+          $('#myModal').modal('hide');
         },
-        error: function(error) {   
-          alert('err');
+        error: function(error) { 
+          alert('error');  
         }
     }); 
-*/
+
     event.preventDefault();
-    })
+  });
+
+  var socket = io.connect('http://localhost:3000', {});
+
+
 });

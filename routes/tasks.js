@@ -23,6 +23,7 @@ exports.add = function(req, res, next){
     if (error) return next(error);
     if (!task) return next(new Error('Failed to save.'));
     console.info('Added %s with id=%s', task.name, task._id);
+    next();
     res.render('task', {
       task: task
     });
@@ -68,15 +69,14 @@ exports.del = function(req, res, next) {
 
 exports.updateTask = function(req, res, next) {
   console.info('update...');
-  /*
-  req.db.tasks.update(req.task._id, function(error, count) {
+  req.db.tasks.updateById(req.task._id, {$set: {contents: req.body.contents }}, function(error, count) {
     if (error) return next(error);
     if (count !==1) return next(new Error('Something went wrong.'));
-    console.info('Deleted task %s with id=%s completed.', req.task.name, req.task._id);
+    console.info('Updated Task : task %s with id=%s completed.', req.task.name, req.task._id);
     res.status(200).send();
-  });
-*/
-}
+  })
+};
+
 exports.login = function(req, res, next) {
     req.session.nickname=req.param('nickname');
     console.log(req.session.name)

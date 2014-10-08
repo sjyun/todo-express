@@ -16,23 +16,30 @@ $(document).ready(function() {
 
   $('#addTaskForm').submit(function(event) {
     $target = $(event.target);
+    var inputName = $.trim($('#name').val());
+    if(inputName == '' || !inputName ) {
+      alert('please input task name');
+      return false;
+    } else {
+      $.ajax({
+          url : $target.attr("action"),
+          type: "POST",
+          data: $target.serializeArray(),
+          success:function(task) {
+            $task = $(task);
+            $task.find('.task-delete').click(deleteHandler);
+            $task.find('#showTask').click(showHandler);
+            $task.find('#completedForm').submit(completedHandler);
+            $('ul.list-group').append($task);
 
-    $.ajax({
-        url : $target.attr("action"),
-        type: "POST",
-        data: $target.serializeArray(),
-        success:function(task) {
-          $task = $(task);
-          $task.find('.task-delete').click(deleteHandler);
-          $task.find('#showTask').click(showHandler);
-          $task.find('#completedForm').submit(completedHandler);
-          $('ul.list-group').append($task);
+            $target.find("input[name='name']").val('');
+          },
+          error: function(error) {   
+          }
+      });
 
-          $target.find("input[name='name']").val('');
-        },
-        error: function(error) {   
-        }
-    });
+
+    } 
 
     event.preventDefault();
   });
@@ -72,6 +79,7 @@ $(document).ready(function() {
   };
 
   var showTasks = function() {
+    $('ul.list-group').empty();
     $.ajax({
       type: 'GET',
       url: '/tasks',
@@ -121,7 +129,7 @@ $(document).ready(function() {
         success:function(task) {
           $('#taskId').val(taskId);
           $('#contents').val(task.contents);
-          $('.modal-title').html(task.name);
+          $('#title').val(task.name);
         },
         error: function(error) { 
           alert('error');   
@@ -134,12 +142,14 @@ $(document).ready(function() {
   $('#saveBtn').on('click', function(event) {
     var taskId =  $('#taskId').val();
     var contents = $('#contents').val();
+    var title = $('#title').val();
     var $target = $(event.target);
 
       $.ajax({
         url : '/tasks/' + $('#taskId').val(),
         type: "PUT",
         data: {
+          name:title,
           contents:contents,
            _csrf: $('#asdf').val()
         },
@@ -148,6 +158,10 @@ $(document).ready(function() {
           $('#contents').val('');
           $('.modal-title').html('');
           $('#myModal').modal('hide');
+
+          // reload list
+          showTasks();
+
         },
         error: function(error) { 
           alert('error');  

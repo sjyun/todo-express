@@ -68,8 +68,7 @@ exports.del = function(req, res, next) {
 
 
 exports.updateTask = function(req, res, next) {
-  console.info('update...');
-  req.db.tasks.updateById(req.task._id, {$set: {contents: req.body.contents }}, function(error, count) {
+  req.db.tasks.updateById(req.task._id, {$set: {contents: req.body.contents , name:req.body.name }}, function(error, count) {
     if (error) return next(error);
     if (count !==1) return next(new Error('Something went wrong.'));
     console.info('Updated Task : task %s with id=%s completed.', req.task.name, req.task._id);
